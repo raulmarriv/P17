@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>M3UF2P17.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #a9b7c6; background-color: #2b2b2b; font-family: Monospaced}
+pre {color: #a9b7c6; background-color: #2b2b2b; font-family: Monospaced}
+table {color: #888888; background-color: #313335; font-family: Monospaced}
+.comment {color: #808080}
+.whitespace {color: #505050}
+.ST0 {color: #9876aa; font-family: Monospaced; font-style: italic}
+.ST2 {color: #ffc66d; font-family: Monospaced; font-style: italic}
+.string {color: #6a8759}
+.number {color: #6897bb}
+.ST1 {color: #808080; font-family: Monospaced; font-style: italic}
+.ST3 {font-family: Monospaced; font-style: italic}
+.literal {color: #cc7832}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">F:\M3\M3UF2P17\src\pkraulmartos\M3UF2P17.java</td></tr></table>
+<pre>
+<span class="comment">/*</span>
+<span class="comment">Author: Raul Martos</span>
+<span class="comment">Date: 07/02/2020</span>
+<span class="comment"> */</span>
+<span class="literal">package</span> pkraulmartos;
+
+<span class="literal">import</span> java.text.DecimalFormat;
+<span class="literal">import</span> java.util.Scanner;
+
+<span class="literal">public</span> <span class="literal">class</span> M3UF2P17 {
+
+    <span class="literal">static</span> Scanner <span class="ST0">keyboard</span> = <span class="literal">new</span> Scanner(System.<span class="ST0">in</span>);
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">final</span> String <span class="ST1">ANSI_PURPLE</span> = <span class="string">&quot;</span><span class="literal">\u001B</span><span class="string">[35m</span><span class="string">&quot;</span>;
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">final</span> String <span class="ST1">ANSI_CYAN</span> = <span class="string">&quot;</span><span class="literal">\u001B</span><span class="string">[36m</span><span class="string">&quot;</span>;
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">final</span> String <span class="ST1">ANSI_YELLOW</span> = <span class="string">&quot;</span><span class="literal">\u001B</span><span class="string">[33m</span><span class="string">&quot;</span>;
+
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) {
+        <span class="comment">// TODO code application logic here</span>
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Author: Raul Martos</span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println();
+
+        <span class="literal">int</span> euro;
+        String euro1;
+        <span class="literal">float</span> euro2;
+        String name;
+        String results;
+        DecimalFormat df = <span class="literal">new</span> DecimalFormat(<span class="string">&quot;</span><span class="string">0.00</span><span class="string">&quot;</span>);
+        <span class="literal">int</span> option = -<span class="number">1</span>;
+        <span class="ST0">keyboard</span>.useDelimiter(<span class="string">&quot;</span><span class="literal">\n</span><span class="string">&quot;</span>);
+        <span class="literal">do</span> {
+            <span class="ST3">userMenu</span>();
+            option = <span class="ST0">keyboard</span>.nextInt();
+            <span class="literal">switch</span> (option) {<span class="comment">//init of switch //estructura if-esle</span>
+                <span class="literal">case</span> <span class="number">1</span>:
+                    System.<span class="ST0">out</span>.print(<span class="string">&quot;</span><span class="string">How many euro? </span><span class="string">&quot;</span>);
+                    euro = <span class="ST0">keyboard</span>.nextInt();
+                    <span class="literal">float</span> result = <span class="ST3">FunctionIntFloat</span>(euro);
+                    System.<span class="ST0">out</span>.print(euro + <span class="string">&quot;</span><span class="string">€ </span><span class="string">&quot;</span> + <span class="string">&quot;</span><span class="string"> = </span><span class="string">&quot;</span> + df.format(result) + <span class="string">&quot;</span><span class="string">$</span><span class="string">&quot;</span>);
+                    System.<span class="ST0">out</span>.println();
+                    <span class="literal">break</span>;
+
+                <span class="literal">case</span> <span class="number">2</span>:
+                    System.<span class="ST0">out</span>.print(<span class="string">&quot;</span><span class="string">How many euro? </span><span class="string">&quot;</span>);
+                    euro = <span class="ST0">keyboard</span>.nextInt();
+                    <span class="literal">double</span> result2 = <span class="ST3">FunctionIntDouble</span>(euro);
+                    System.<span class="ST0">out</span>.println(euro + <span class="string">&quot;</span><span class="string">€ </span><span class="string">&quot;</span> + <span class="string">&quot;</span><span class="string"> = </span><span class="string">&quot;</span> + df.format(result2) + <span class="string">&quot;</span><span class="string">$</span><span class="string">&quot;</span>);
+                    System.<span class="ST0">out</span>.println();
+                    <span class="literal">break</span>;
+
+                <span class="literal">case</span> <span class="number">3</span>:
+                    System.<span class="ST0">out</span>.print(<span class="string">&quot;</span><span class="string">How many euro? </span><span class="string">&quot;</span>);
+                    euro = <span class="ST0">keyboard</span>.nextInt();
+                    <span class="ST3">FunctionIntString</span>(euro);
+                    System.<span class="ST0">out</span>.println();
+                    <span class="literal">break</span>;
+
+                <span class="literal">case</span> <span class="number">4</span>:
+                    System.<span class="ST0">out</span>.print(<span class="string">&quot;</span><span class="string">How many euro? </span><span class="string">&quot;</span>);
+                    euro1 = <span class="ST0">keyboard</span>.next();
+                    <span class="literal">int</span> result4 = <span class="ST3">FunctionStringInt</span>(euro1);
+                    System.<span class="ST0">out</span>.println(euro1 + <span class="string">&quot;</span><span class="string">€ </span><span class="string">&quot;</span> + <span class="string">&quot;</span><span class="string"> = </span><span class="string">&quot;</span> + result4 + <span class="string">&quot;</span><span class="string">$</span><span class="string">&quot;</span>);
+                    System.<span class="ST0">out</span>.println();
+                    <span class="literal">break</span>;
+
+                <span class="literal">case</span> <span class="number">5</span>:
+                    System.<span class="ST0">out</span>.print(<span class="string">&quot;</span><span class="string">How many euro? </span><span class="string">&quot;</span>);
+                    euro2 = <span class="ST0">keyboard</span>.nextInt();
+                    <span class="literal">int</span> result5 = <span class="ST3">FunctionFloatInt</span>(euro2);
+                    System.<span class="ST0">out</span>.println(df.format(euro2) + <span class="string">&quot;</span><span class="string">€ </span><span class="string">&quot;</span> + <span class="string">&quot;</span><span class="string"> = </span><span class="string">&quot;</span> + result5 + <span class="string">&quot;</span><span class="string">$</span><span class="string">&quot;</span>);
+                    System.<span class="ST0">out</span>.println();
+                    <span class="literal">break</span>;
+
+                <span class="literal">case</span> <span class="number">6</span>:
+                    System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">How many euro? </span><span class="string">&quot;</span>);
+                    euro2 = <span class="ST0">keyboard</span>.nextFloat();
+                    <span class="ST3">FunctionFloatString</span>(euro2);
+                    System.<span class="ST0">out</span>.println();
+                    <span class="literal">break</span>;
+
+                <span class="literal">case</span> <span class="number">7</span>:
+                    System.<span class="ST0">out</span>.print(<span class="string">&quot;</span><span class="string">Letter: </span><span class="string">&quot;</span>);
+                    <span class="literal">char</span> letter = (<span class="ST0">keyboard</span>.next()).charAt(<span class="number">0</span>);
+                    <span class="ST3">FunctionChar</span>(letter);
+                    <span class="literal">break</span>;
+
+                <span class="literal">case</span> <span class="number">8</span>:
+                    System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Enter one word: </span><span class="string">&quot;</span>);
+                    name = <span class="ST0">keyboard</span>.next();
+                    results = <span class="ST3">FunctionCharBinary</span>(name);
+                    System.<span class="ST0">out</span>.println(results);
+                    System.<span class="ST0">out</span>.println();
+                    <span class="literal">break</span>;
+
+                <span class="literal">case</span> <span class="number">9</span>:
+                    <span class="literal">int</span> numChar;
+                    <span class="literal">do</span> {
+                        System.<span class="ST0">out</span>.print(<span class="string">&quot;</span><span class="string">Give a number between 0 and 255: </span><span class="string">&quot;</span>);
+                        numChar = <span class="ST0">keyboard</span>.nextInt();
+                    } <span class="literal">while</span> (numChar &gt; <span class="number">255</span> || <span class="number">0</span> &gt; numChar);
+                    String numconv = <span class="ST3">FunctionIntChar</span>(numChar);
+                    System.<span class="ST0">out</span>.println(numconv);
+                    System.<span class="ST0">out</span>.println();
+                    <span class="literal">break</span>;
+
+                <span class="literal">case</span> <span class="number">10</span>:
+                    <span class="ST3">FunctionCharInt</span>();
+                    <span class="literal">break</span>;
+
+                <span class="literal">case</span> <span class="number">0</span>:
+                    <span class="literal">break</span>;
+                <span class="literal">default</span>:
+                    System.<span class="ST0">out</span>.print(<span class="string">&quot;</span><span class="string">Option not avaible: </span><span class="string">&quot;</span>);
+            }<span class="comment">//end of switch</span>
+            <span class="comment">//System.out.print(&quot;press any kay to continue: &quot;);</span>
+            <span class="comment">//key = keyboard.next();</span>
+        } <span class="literal">while</span> (option != <span class="number">0</span>);
+
+        <span class="literal">double</span> <span class="comment">preu</span> = <span class="number">100</span>, <span class="comment">tax</span> = <span class="number">21</span>, <span class="comment">result</span>;
+
+        <span class="comment">/*result = functionRaul(preu, tax); //LLAMAR a function</span>
+<span class="comment">        methodAitor(preu, tax, result); //LLAMAR al procedimiento*/</span>
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">userMenu</span>() {
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Option1:  (int-Float) </span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Option2:  (int-double) </span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Option3:  (int-String) </span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Option4:  (String-int)</span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Option5:  (float-int) </span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Option6:  (float-String) </span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Option7:  (char)</span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Option8:  (char-binary)</span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Option9:  (int-char)</span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Option10: (char)</span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Exit:  </span><span class="string">&quot;</span>);
+
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="literal">\n</span><span class="literal">\n</span><span class="string">Choose an option</span><span class="string">&quot;</span>);
+    }
+
+    <span class="comment">//Function CalculoPVP</span>
+    <span class="comment">/*private static double functionRaul(double price, double iva) {</span>
+<span class="comment">        double pvp = 0;</span>
+<span class="comment">        pvp = price + price * (iva / 100);</span>
+
+<span class="comment">        return pvp;</span>
+<span class="comment">    }</span>
+
+<span class="comment">    public static void methodAitor(double price, double iva, double result) {</span>
+<span class="comment">        System.out.println(ANSI_PURPLE + &quot;Precio: &quot; + price + ANSI_CYAN + &quot;\tIVA: &quot; + iva + ANSI_YELLOW + &quot;\tResult: &quot; + result);</span>
+<span class="comment">    }*/</span>
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">float</span> <span class="ST2">FunctionIntFloat</span>(<span class="literal">int</span> euro) {
+        <span class="literal">float</span> result = <span class="number">0</span>;
+        result = euro / <span class="number">0.91f</span>; <span class="comment">//cast          </span>
+        <span class="literal">return</span> result;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">double</span> <span class="ST2">FunctionIntDouble</span>(<span class="literal">int</span> euro) {
+        <span class="literal">double</span> result2 = <span class="number">0</span>;
+        result2 = euro / (<span class="literal">double</span>) <span class="number">0.91</span>;
+
+        <span class="literal">return</span> result2;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> String <span class="ST2">FunctionIntString</span>(<span class="literal">int</span> euro) {
+        String result3 = Integer.<span class="ST3">toString</span>(euro);
+        System.<span class="ST0">out</span>.println(euro + <span class="string">&quot;</span><span class="string"> € </span><span class="string">&quot;</span> + <span class="string">&quot;</span><span class="string"> = </span><span class="string">&quot;</span> + result3 + <span class="string">&quot;</span><span class="string"> $</span><span class="string">&quot;</span>);
+
+        <span class="literal">return</span> result3;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span> <span class="ST2">FunctionStringInt</span>(String euro1) {
+        <span class="literal">int</span> result4;
+        result4 = Integer.<span class="ST3">parseInt</span>(euro1);
+
+        <span class="literal">return</span> result4;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span> <span class="ST2">FunctionFloatInt</span>(<span class="literal">float</span> euro2) {
+        <span class="literal">int</span> result5 = <span class="number">0</span>;
+        result5 = (<span class="literal">int</span>) (euro2 / <span class="number">0.91</span>); <span class="comment">//cast       </span>
+        <span class="literal">return</span> result5;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> String <span class="ST2">FunctionFloatString</span>(<span class="literal">float</span> euro2) {
+        String result6 = Float.<span class="ST3">toString</span>(euro2);
+        System.<span class="ST0">out</span>.println(euro2 + <span class="string">&quot;</span><span class="string"> € </span><span class="string">&quot;</span> + <span class="string">&quot;</span><span class="string"> = </span><span class="string">&quot;</span> + result6 + <span class="string">&quot;</span><span class="string"> $</span><span class="string">&quot;</span>);
+
+        <span class="literal">return</span> result6;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">FunctionChar</span>(<span class="literal">char</span> letter) {
+        String letterB = Integer.<span class="ST3">toBinaryString</span>(letter);
+        System.<span class="ST0">out</span>.println(letter + <span class="string">&quot;</span><span class="string"> = </span><span class="string">&quot;</span> + letterB);
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> String <span class="ST2">FunctionCharBinary</span>(String name) {
+        String result = <span class="string">&quot;&quot;</span>;
+        <span class="literal">char</span> ch = <span class="string">&#39;</span> <span class="string">&#39;</span>;
+
+        <span class="literal">for</span> (<span class="literal">int</span> i = <span class="number">0</span>; i &lt; name.length(); i++) {
+            ch = name.charAt(<span class="number">0</span>);
+            result = Integer.<span class="ST3">toBinaryString</span>(ch) + <span class="string">&quot;</span> <span class="string">&quot;</span>;
+        }
+
+        <span class="literal">return</span> result;
+    }
+
+    <span class="comment">/*private static String Function8_1(String name) {</span>
+<span class="comment">        String result = &quot;&quot;;</span>
+<span class="comment">        char ch = &#39; &#39;;</span>
+        
+<span class="comment">        for (int i = 0; i &lt; name.length(); i++)result = Integer.toBinaryString(ch)+&quot; &quot;;</span>
+<span class="comment">        return result;</span>
+<span class="comment">    }*/</span>
+    <span class="literal">private</span> <span class="literal">static</span> String <span class="ST2">FunctionIntChar</span>(<span class="literal">int</span> numberintchar) {
+        String aChar = <span class="literal">new</span> Character((<span class="literal">char</span>) numberintchar).toString();
+        <span class="literal">return</span> aChar;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">FunctionCharInt</span>() {
+        <span class="literal">int</span> Ncol = <span class="number">3</span>;
+        <span class="literal">int</span> iCol=<span class="number">256</span>/Ncol;
+        <span class="literal">for</span> (<span class="literal">int</span> i = <span class="number">0</span>; i &lt; <span class="number">255</span>; i++) {
+            System.<span class="ST0">out</span>.println(i + <span class="string">&quot;</span><span class="literal">\t</span><span class="string">&quot;</span> + Integer.<span class="ST3">toString</span>(i, <span class="number">16</span>)
+                    + <span class="string">&quot;</span><span class="string"> =</span><span class="string">&quot;</span> + (<span class="literal">char</span>) i);
+            System.<span class="ST0">out</span>.print((i + iCol * <span class="number">1</span>) + <span class="string">&quot;</span><span class="string"> - </span><span class="string">&quot;</span> + (<span class="literal">char</span>) (i + iCol * <span class="number">1</span>)+<span class="string">&quot;</span><span class="literal">\t</span><span class="string">&quot;</span>);
+            System.<span class="ST0">out</span>.print(<span class="string">&quot;</span><span class="literal">\t</span><span class="string">&quot;</span> + (i + iCol * <span class="number">2</span>) + <span class="string">&quot;</span><span class="string"> - </span><span class="string">&quot;</span> + (<span class="literal">char</span>) (i + iCol * <span class="number">2</span>)+<span class="string">&quot;</span><span class="literal">\t</span><span class="string">&quot;</span>);
+        }
+        System.<span class="ST0">out</span>.println();
+    }
+}
+
+</pre></body>
+</html>
